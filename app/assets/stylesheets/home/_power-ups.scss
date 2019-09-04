@@ -1,0 +1,27 @@
+
+.power-ups {
+  @extend %user-select-none;
+  $footer-img-padding: rem(5px);
+  $footer-img-move-up: rem(3px);
+  position: absolute;
+  height: 30%;
+  right: rem($game-info-side-margin);
+  bottom: rem($game-info-top-margin);
+  header {
+    @extend %user-select-none;
+    @extend %font-arcade-17;
+    @extend %font-arcade-shadow;
+    position: absolute;
+    right: 0; top: (rem(17px) + $footer-img-padding + $footer-img-move-up) * -1;
+    text-transform: uppercase; }
+  img { 
+    @extend %user-select-none;
+    @extend %pixelated;
+    display: block;
+    float: left;
+    height: 100%;
+    margin-left: $footer-img-padding; 
+    padding: 0;
+    &.off   { opacity: 0.6; @include scale(0.9); }
+    &.hover { opacity: 1.0; @extend %springUp; }
+    &.down  { opacity: 1.0; @include scale(1.0); } } }

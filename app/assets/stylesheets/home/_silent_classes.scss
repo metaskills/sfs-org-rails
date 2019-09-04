@@ -1,0 +1,76 @@
+
+%bs-border-box { @include box-sizing(border-box); }
+%bc-border-box { @include background-clip(border-box); }
+%bo-border-box { @include background-origin(border-box); }
+
+%stretched { @include stretch; }
+
+%user-select-none { @include user-select(none); }
+
+%font-family-main   { font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif; }
+%font-main-10       { @extend %font-family-main; font-size: rem(10px); line-height: 110%; }
+%font-main-12       { @extend %font-family-main; font-size: rem(12px); line-height: 120%; }
+%font-main-14       { @extend %font-family-main; font-size: rem(14px); line-height: 130%; }
+%font-main-17       { @extend %font-family-main; font-size: rem(17px); line-height: 130%; }
+%font-main-23       { @extend %font-family-main; font-size: rem(23px); line-height: 120%; }
+%font-main-27       { @extend %font-family-main; font-size: rem(27px); line-height: 120%; }
+%font-arcade        { font-family: 'press_start'; }
+%font-arcade-10     { @extend %font-arcade; font-size: rem(10px); line-height: 120%; }
+%font-arcade-14     { @extend %font-arcade; font-size: rem(14px); line-height: 130%; }
+%font-arcade-17     { @extend %font-arcade; font-size: rem(17px); line-height: 120%; }
+%font-arcade-23     { @extend %font-arcade; font-size: rem(23px); line-height: 120%; }
+%font-arcade-shadow {
+  text-shadow:
+    // 1 Pixel Outline
+    0px  -1px  0px  $color-arcade-font-shadow, // top
+    1px  -1px  0px  $color-arcade-font-shadow, // top-right
+    1px   0px  0px  $color-arcade-font-shadow, // right
+    1px   1px  0px  $color-arcade-font-shadow, // bottom-right
+    0px   1px  0px  $color-arcade-font-shadow, // bottom
+   -1px   1px  0px  $color-arcade-font-shadow, // bottom-left
+   -1px  -1px  0px  $color-arcade-font-shadow, // left
+    // 2 Pixel Bottom Right Emphasis
+    3px   2px  0px  $color-arcade-font-shadow,
+    2px   3px  0px  $color-arcade-font-shadow,
+   -1px   3px  0px  $color-arcade-font-shadow
+  ;
+}
+%font-arcade-shadow-down-white {
+  text-shadow:
+    // New Top Level
+    2px   2px  0px  $color-white,
+    // 1 Pixel Outline (offset 2px bottom right)
+    2px   1px  0px  $color-arcade-font-shadow, // top
+    3px   1px  0px  $color-arcade-font-shadow, // top-right
+    3px   2px  0px  $color-arcade-font-shadow, // right
+    3px   3px  0px  $color-arcade-font-shadow, // bottom-right
+    2px   3px  0px  $color-arcade-font-shadow, // bottom
+    1px   3px  0px  $color-arcade-font-shadow, // bottom-left
+    1px   1px  0px  $color-arcade-font-shadow  // left
+  ;
+}
+%font-arcade-shadow-down-ruby {
+  text-shadow:
+    // New Top Level
+    2px   2px  0px  $color-ruby,
+    // 1 Pixel Outline (offset 2px bottom right)
+    2px   1px  0px  $color-arcade-font-shadow, // top
+    3px   1px  0px  $color-arcade-font-shadow, // top-right
+    3px   2px  0px  $color-arcade-font-shadow, // right
+    3px   3px  0px  $color-arcade-font-shadow, // bottom-right
+    2px   3px  0px  $color-arcade-font-shadow, // bottom
+    1px   3px  0px  $color-arcade-font-shadow, // bottom-left
+    1px   1px  0px  $color-arcade-font-shadow  // left
+  ;
+}
+
+%z-index-top { z-index: $z-index-top; }
+
+%pixelated {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+

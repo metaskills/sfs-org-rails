@@ -1,0 +1,50 @@
+
+$cell-spacing:      rem(10px);
+$cell-spacing-half: $cell-spacing / 2;
+$cell-spacing-dbl:  $cell-spacing * 2;
+
+.credits {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $water-height;
+  background-color: $color-water;
+  background-image: asset_url('sea_floor_v3_4ppp.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+  @include transform(translateY(100%));
+  &.up   { @extend %creditsUp; } 
+  &.down { @extend %creditsDown; }
+  .crab {
+    position: absolute;
+    left: rem($game-info-side-margin) * 4;
+    bottom: $cell-spacing;
+    opacity: 0.4;
+    &.walking { @extend %crabWalk; } } }
+  .credits-area { 
+    $side: rem($game-info-side-margin);
+    $bottom: rem($game-info-top-margin);
+    position: absolute;
+    margin: 0 $side $bottom $side;
+    display: table; }
+    .credit-info {
+      @extend %user-select-none;
+      @extend %font-main-10;
+      display: table-cell;
+      vertical-align: top;
+      padding-right: $cell-spacing;
+      width: 25%;
+      &:last-child { padding-right: 0px; }
+      img { 
+        float: left;
+        width: rem(50px); 
+        height: rem(50px); 
+        border: rem(2px) solid black; 
+        margin: 0 $cell-spacing $cell-spacing-half 0; }
+      .name {
+        @extend %font-arcade-10;
+        @extend %font-arcade-shadow;
+        margin-bottom: $cell-spacing-half / 2;
+        text-transform: uppercase;
+        line-height: 120%;
+        color: $color-mmaid-body; } }

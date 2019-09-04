@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+# Clean any previous bundle/builds.
+rm -rf ./.aws-sam/build
+
+# Ensure native extensions built for platform.
+sam build --use-container
+
+# [HOOK] Environments & Configuration
+./bin/bundle
+./bin/rake -rlamby lamby:ssm:dotenv \
+  LAMBY_SSM_PARAMS_PATH="/config/757rb/env" \
+  LAMBY_SSM_PARAMS_LABEL="live"
+mv ".env.${RAILS_ENV}" "./.aws-sam/build/RailsFunction/"
+
+# [HOOK] Asset Hosts & Precompiling
+rm -rf ./public/assets
+LAMBY_BUILD=1 NODE_ENV=$RAILS_ENV ./bin/rails assets:precompile
+mv ./config/manifest.json ./.aws-sam/build/RailsFunction/config
+rm -rf ./.aws-sam/build/RailsFunction/public/assets
+mv ./public/assets ./.aws-sam/build/RailsFunction/public/assets
+rm -rf ./.aws-sam/build/RailsFunction/app/assets
+rm -rf ./.aws-sam/build/RailsFunction/vendor/assets
+
+# Clean un-needed artifacts.
+pushd ./.aws-sam/build/RailsFunction/
+rm -rf .aws-sam \
+  .git \
+  log \
+  test \
+  tmp \
+  vendor/bundle/ruby/2.5.0/cache
+popd

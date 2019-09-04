@@ -1,0 +1,48 @@
+
+.next-adventure {
+  @extend %user-select-none;
+  position: absolute;
+  width: 56%;
+  max-height: 58%;
+  left: 22%;
+  padding: 0 rem(10px);
+  bottom: $water-height * 1.75;
+  border-style: solid;
+  @include border-image(asset_url('next_adventure_border_16ppp.png') 144 fill repeat);
+  &.bounceIn { 
+    @extend %bounceIn;
+    @include animation-duration(600ms); }
+  .logo {
+      height: rem(22px); 
+      margin: 0 rem(7px) 0 0; }
+  .group { 
+    @extend %font-main-14;
+    font-weight: bold;
+    margin-bottom: rem(23px / 3); }
+  .name {
+    @extend %font-arcade-17;
+    @extend %font-arcade-shadow;
+    text-transform: uppercase;
+    margin-bottom: rem(23px / 3); }
+  time {
+    float: left;
+    display: inline-block;
+    width: rem(42px);
+    height: rem(42px);
+    text-transform: uppercase;
+    margin: rem(4px) rem(12px) 0 0;
+    text-align: center;
+    background-image: asset_url('calendar.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    span   { display: block; }
+    .month { @extend %font-main-12; color: white; }
+    .day   { @extend %font-main-17; padding-right: rem(4px); font-size: rem(20px); color: black; font-weight: bold; letter-spacing: rem(-2px); } }
+  .description {
+    @extend %font-main-14;
+    p { margin-bottom: rem(10px); } }
+  .rsvp        {  }
+  .rsvp-info   { float: left; text-transform: uppercase; font-weight: bold; }
+  .rsvp-count  { @extend %font-arcade-17; @extend %font-arcade-shadow; color: $color-ruby; }
+  .rsvp-button { float: right; @extend .rupee-button; } }
+
