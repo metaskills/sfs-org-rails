@@ -13,6 +13,10 @@
 !/log/.keep
 !/tmp/.keep
 
+# Dotenv
+.env.*
+!.env.development
+!.env.test
 
 /public/assets
 .byebug_history
