@@ -27,6 +27,8 @@ rm -rf ./.aws-sam/build/RailsFunction/vendor/assets
 pushd ./.aws-sam/build/RailsFunction/
 rm -rf .aws-sam \
   .git \
+  .env.development \
+  .env.test \
   log \
   test \
   tmp \
