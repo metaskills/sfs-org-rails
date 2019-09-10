@@ -2,13 +2,27 @@ name: CI
 on: [push]
 jobs:
   test:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
 
-
-# - name: Bundle
-#   run: |
-#     bundle install --jobs 4 --retry 3
-# - name: Test
-#   run: ./bin/rails test
+# name: CI
+# on: [push]
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v1
+#       - name: Setup Ruby
+#         uses: actions/setup-ruby@v1
+#         with:
+#           ruby-version: 2.5.x
+#       - name: Bundle
+#         run: |
+#           gem uninstall -aIx bundler
+#           gem install bundler -v 1.17.3
+#           bundle install --jobs 4 --retry 3
+#       - name: Test
+#         run: ./bin/rails test
