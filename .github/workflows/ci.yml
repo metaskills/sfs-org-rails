@@ -5,7 +5,6 @@ jobs:
     steps:
       - name: Checkout
         uses: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
-        args: echo 'HELLO'
 
 
 # - name: Bundle
