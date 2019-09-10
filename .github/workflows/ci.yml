@@ -8,7 +8,8 @@ jobs:
         uses: actions/checkout@v1
       - name: Setup & Test
         uses: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
-        run: echo 'HELLO'
+        with:
+          args: echo 'HELLO'
 
 
 #       - name: Setup Ruby
