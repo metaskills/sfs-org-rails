@@ -2,12 +2,15 @@ name: CI
 on: [push]
 jobs:
   test:
-    runs-on: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-      - name: Bundle
-        run: |
-          bundle install --jobs 4 --retry 3
-      - name: Test
-        run: ./bin/rails test
+        uses: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
+        run: echo 'HELLO'
+
+
+
+# - name: Bundle
+#   run: |
+#     bundle install --jobs 4 --retry 3
+# - name: Test
+#   run: ./bin/rails test
