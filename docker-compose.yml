@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: sfs-org-rails
+    command: bash -c "./bin/rails server -p 3001 -b '0.0.0.0'"
+    volumes:
+      - .:/var/task:delegated
+    ports:
+      - '3001:3001'

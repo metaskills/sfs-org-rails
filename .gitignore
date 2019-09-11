@@ -25,3 +25,5 @@
 /config/master.key
 # Lamby
 /.aws-sam
+
+/vendor/bundle
