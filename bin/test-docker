@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+docker run \
+  --volume "${PWD}:/var/task" \
+  "metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2" \
+  ./bin/test-ci

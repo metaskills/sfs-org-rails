@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# docker-compose run web
+
+docker run \
+  --interactive \
+  --tty \
+  --volume "${PWD}:/var/task:delegated" \
+  'sfs-org-rails_web' \
+  "bin/rails server -p 3001 -b '0.0.0.0'"

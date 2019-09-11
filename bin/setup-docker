@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+# docker-compose build
+
+docker run \
+  --interactive \
+  --tty \
+  --volume "${PWD}:/var/task:delegated" \
+  'sfs-org-rails' \
+  './bin/setup'
