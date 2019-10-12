@@ -38,6 +38,7 @@ class MeetupPlayers
     # players = shuffle(data.results)
     # content = $('<section>')
     count = Math.floor(Math.random() * 150)
+    count = 22
     # for player in players when player.photo?.thumb_link
     #   el    = $ '<aside>', class: 'player', 'data-link': player.link
     #   link  = $ '<a>', href: player.link

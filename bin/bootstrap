@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-docker build \
-  --tag 'sfs-org-rails' \
-  .
+docker-compose \
+  --project-name "sfs-org-rails" \
+  build

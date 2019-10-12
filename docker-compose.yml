@@ -1,10 +1,15 @@
-version: '3'
+version: '3.7'
 services:
-  web:
+  cicd:
     build: .
-    container_name: sfs-org-rails
-    command: bash -c "./bin/rails server -p 3001 -b '0.0.0.0'"
     volumes:
+      - ~/.aws:/root/.aws:ro
+      - .:/var/task:delegated
+  development:
+    build: .
+    command: bash -c "./bin/rails server -p 4001 -b '0.0.0.0'"
+    volumes:
+      - ~/.aws:/root/.aws:ro
       - .:/var/task:delegated
     ports:
-      - '3001:3001'
+      - '4001:4001'

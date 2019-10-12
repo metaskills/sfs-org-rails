@@ -1,4 +1,6 @@
 #!/bin/bash
 set -e
 
-./bin/rails test
+docker-compose run \
+  development \
+  ./bin/rails test
