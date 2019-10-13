@@ -6,11 +6,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: CI
-        run: |
-          ./bin/bootstrap
-          ./bin/setup
-          ./bin/test
+      # - name: CI
+      #   run: |
+      #     ./bin/bootstrap
+      #     ./bin/setup
+      #     ./bin/test
       - name: CD
         if: github.ref == 'refs/heads/master'
         env:
@@ -18,5 +18,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
-          ./bin/setup-cd
-          ./bin/deploy
+          which aws
+          ls -lAGp ~/.aws
+          cat ~/.aws/config
