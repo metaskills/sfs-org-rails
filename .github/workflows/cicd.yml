@@ -6,16 +6,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Setup & Test
-        uses: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
-        with:
-          args: ./bin/test-ci
-      - name: Deploy
+      - name: CI
+        run: |
+          ./bin/bootstrap
+          ./bin/setup
+          ./bin/test
+      - name: CD
         if: github.ref == 'refs/heads/master'
-        uses: docker://metaskills/lambcicd-build-ruby2.5-nodejs8.10:v2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        with:
-          args: ./bin/deploy-production
+        run: |
+          ./bin/setup-cd
+          ./bin/deploy
