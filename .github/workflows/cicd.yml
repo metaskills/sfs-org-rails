@@ -8,6 +8,7 @@ jobs:
         uses: actions/checkout@v1
       - name: CI
         run: |
+          mkdir -p ~/.aws
           ./bin/bootstrap
           ./bin/setup
           ./bin/test
@@ -18,18 +19,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: |
-          rm -rf ~/.aws
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set default.region $AWS_DEFAULT_REGION
           aws configure set output json
-          ls -lAGp ~
-
-# mkdir ~/.aws
-
-#
-#
-#
-
-
-# drwxr-xr-x 2 root   4096 Oct 13 01:52 .aws/
+          ./bin/deploy
