@@ -7,11 +7,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: CI
+        env:
+          MYCHECK: ${{ github.event_name }}
         run: |
           echo GITHUB_ACTION
           echo $GITHUB_ACTION
           echo GITHUB_SHA
           echo $GITHUB_SHA
+          echo MYCHECK
+          echo $MYCHECK
           # mkdir -p ~/.aws
           # ./bin/bootstrap
           # ./bin/setup
