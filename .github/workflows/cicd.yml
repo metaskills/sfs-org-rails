@@ -14,8 +14,8 @@ jobs:
           echo $GITHUB_ACTION
           echo GITHUB_SHA
           echo $GITHUB_SHA
-          puts GITHUB_HEAD_REF
-          puts $GITHUB_HEAD_REF
+          echo GITHUB_HEAD_REF
+          echo $GITHUB_HEAD_REF
       - name: Deploy (stage)
         if: github.head_ref != null
         run: |
