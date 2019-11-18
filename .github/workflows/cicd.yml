@@ -7,13 +7,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: CI
+        env:
+          myNull: ${{ null }}
         run: |
           echo GITHUB_ACTION
           echo $GITHUB_ACTION
           echo GITHUB_SHA
           echo $GITHUB_SHA
-          puts "github.head_ref"
-          puts "${{ github.head_ref }}"
+          puts GITHUB_HEAD_REF
+          puts $GITHUB_HEAD_REF
           mkdir -p ~/.aws
           # ./bin/bootstrap
           # ./bin/setup
