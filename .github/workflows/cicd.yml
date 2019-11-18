@@ -14,8 +14,8 @@ jobs:
           echo $GITHUB_ACTION
           echo GITHUB_SHA
           echo $GITHUB_SHA
-          puts MYCHECK
-          puts $MYCHECK
+          echo MYCHECK
+          echo $MYCHECK
           # mkdir -p ~/.aws
           # ./bin/bootstrap
           # ./bin/setup
