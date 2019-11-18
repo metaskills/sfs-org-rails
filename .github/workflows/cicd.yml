@@ -16,10 +16,6 @@ jobs:
           echo $GITHUB_SHA
           puts GITHUB_HEAD_REF
           puts $GITHUB_HEAD_REF
-          mkdir -p ~/.aws
-          # ./bin/bootstrap
-          # ./bin/setup
-          # ./bin/test
       - name: Deploy (stage)
         if: github.head_ref != null
         run: |
