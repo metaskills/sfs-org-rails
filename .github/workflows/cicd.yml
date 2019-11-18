@@ -7,22 +7,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: CI
-        env:
-          MYCHECK: ${{ github.head_ref }}
         run: |
           echo GITHUB_ACTION
           echo $GITHUB_ACTION
           echo GITHUB_SHA
           echo $GITHUB_SHA
-          echo MYCHECK
-          echo $MYCHECK
           # mkdir -p ~/.aws
           # ./bin/bootstrap
           # ./bin/setup
           # ./bin/test
       - name: Deploy (stage)
-        # if: github.head_ref != null
-        on: pull_request
+        if: github.event_name == 'pull_request'
         run: |
           echo 'HERE'
       - name: CD
