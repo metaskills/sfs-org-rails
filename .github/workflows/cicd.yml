@@ -21,7 +21,7 @@ jobs:
           # ./bin/setup
           # ./bin/test
       - name: Deploy (stage)
-        if: github.event_name == 'pull_request'
+        if: github.ref != 'refs/heads/master'
         run: |
           echo 'HERE'
       - name: CD
