@@ -6,33 +6,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: CI
-        env:
-          MYCHECK: ${{ github.event_name }}
+      - name: DEBUG
         run: |
           echo GITHUB_ACTION
           echo $GITHUB_ACTION
           echo GITHUB_SHA
           echo $GITHUB_SHA
-          echo CI
-          echo $CI
-          # mkdir -p ~/.aws
-          # ./bin/bootstrap
-          # ./bin/setup
-          # ./bin/test
-      - name: Deploy (stage)
-        if: github.ref != 'refs/heads/master'
+          echo PWD
+          echo $PWD
+      - name: Commit
         run: |
-          echo 'HERE'
-      - name: CD
-        if: github.ref == 'refs/heads/master'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-        run: |
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set default.region $AWS_DEFAULT_REGION
-          aws configure set output json
-          ./bin/deploy
+          echo 'test'
