@@ -14,6 +14,8 @@ jobs:
           echo $GITHUB_SHA
           echo PWD
           echo $PWD
+          echo HOME
+          echo $HOME
           cd ..
           ls -lAGp .
           mkdir 'new-stuff'
