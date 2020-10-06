@@ -5,11 +5,3 @@ services:
     volumes:
       - ~/.aws:/root/.aws:ro
       - .:/var/task:delegated
-  development:
-    build: .
-    command: bash -c "./bin/rails server -p 4001 -b '0.0.0.0'"
-    volumes:
-      - ~/.aws:/root/.aws:ro
-      - .:/var/task:delegated
-    ports:
-      - '4001:4001'
